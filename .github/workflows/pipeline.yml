@@ -2,7 +2,7 @@ name: Build and Test
 
 on:
   push:
-    branches: [ "main" ]
+  
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
@@ -30,7 +30,7 @@ jobs:
     - name: Start App
       run: npm start &
     - name: Test App
-      run: npm test-npm-security
+      run: npm run test-npm-security
 
 
 
@@ -58,27 +58,3 @@ jobs:
     - name: Test App
       run: npm test
   
-  test-security:
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x, 20.x]
-
-    steps:
-    - name: Checkout Repo 
-      uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: Install Dependencies    
-      run: npm install
-    - name: Start App
-      run: npm start &
-    - name: Test App
-      run: npm test-npm-security
-  
-
