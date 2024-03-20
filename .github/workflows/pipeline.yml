@@ -2,7 +2,7 @@ name: Build and Test
 
 on:
   push:
-    branches: [ "main" ]
+  
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
@@ -30,7 +30,7 @@ jobs:
     - name: Start App
       run: npm start &
     - name: Test App
-      run: npm test-npm-security
+      run: npm run test-npm-security
 
 
 
